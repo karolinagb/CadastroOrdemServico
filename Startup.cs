@@ -1,4 +1,5 @@
 using CadastroOrdemServico.Data;
+using CadastroOrdemServico.Repositories;
 using CadastroOrdemServico.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,7 +27,7 @@ namespace CadastroOrdemServico
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             string connectionString = Configuration.GetConnectionString("CadastroOrdemServicoContext");
             services.AddDbContext<CadastroOrdemServicoContext>(options =>

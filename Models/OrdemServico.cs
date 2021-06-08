@@ -13,6 +13,5 @@ namespace CadastroOrdemServico.Models
         public string NomePrestadorServico { get; set; }
         public DateTime Data { get; set; }
         public decimal Valor { get; set; }
-
     }
 }
