@@ -1,0 +1,81 @@
+﻿@model OrdemServico
+
+<h3 class="text-center">
+    Cadastro de Ordens de Serviço
+</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" class="form-horizontal">
+            <hr />
+            <div class="form-group">
+                <label asp-for="Numero" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="Numero" type="text" class="form-control" id="money" />
+                    <span asp-validation-for="Numero" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="Titulo" type="text" class="form-control" id="number" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CNPJCliente" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="CNPJCliente" type="date" class="form-control" />
+                    <span asp-validation-for="CNPJCliente" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeCliente" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="NomeCliente" class="form-control" />
+                    <span asp-validation-for="NomeCliente" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CPFPrestadorServico" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="CPFPrestadorServico" class="form-control" />
+                    <span asp-validation-for="CPFPrestadorServico" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomePrestadorServico" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="NomePrestadorServico" class="form-control" />
+                    <span asp-validation-for="NomePrestadorServico" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="Data" class="form-control" />
+                    <span asp-validation-for="Data" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="col-md-2 control-label"></label>
+                <div class="col-md-12">
+                    <input asp-for="Valor" class="form-control" />
+                    <span asp-validation-for="Valor" class="text-danger"></span>
+                </div>
+            </div>
+
+            <strong class="text-danger">
+                @Html.ValidationSummary()
+            </strong>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="container container-elements-center">
+                        <input type="submit" class="btn btn-success " value="Salvar" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
