@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Lrt+C6b6ONMbQP2/iY1ff8lqCPwmoVbnt6PYH8uLCOGJ6W0UfoNuogCcVOEIHNiKzHw6xbYa8833F6Sel8uQOQ==",
+  "dgSpecHash": "rDT//1ljva1k/dhniqPFE+/qY9PyoflgOahmJnkrpi582O0P426QuGJDSvXysk701vA3jHZ1KjFcPyf6idq2Bw==",
   "success": true,
   "projectFilePath": "C:\\projetos\\CadastroOrdemServico\\CadastroOrdemServico.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Karolina\\.nuget\\packages\\extensions.fluentvalidation.br\\1.0.2\\extensions.fluentvalidation.br.1.0.2.nupkg.sha512",
     "C:\\Users\\Karolina\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
+    "C:\\Users\\Karolina\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.2.3\\fluentvalidation.aspnetcore.10.2.3.nupkg.sha512",
+    "C:\\Users\\Karolina\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.2.3\\fluentvalidation.dependencyinjectionextensions.10.2.3.nupkg.sha512",
     "C:\\Users\\Karolina\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Karolina\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.7\\microsoft.aspnetcore.mvc.razor.extensions.5.0.7.nupkg.sha512",
     "C:\\Users\\Karolina\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\5.0.7\\microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.7.nupkg.sha512",

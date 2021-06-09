@@ -44,7 +44,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "FluentValidation": {
+            "Extensions.FluentValidation.Br": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[10.2.3, )"
             },
