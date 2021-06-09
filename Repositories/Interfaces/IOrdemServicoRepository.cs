@@ -8,5 +8,7 @@ namespace CadastroOrdemServico.Repositories.Interfaces
         public void Insert(OrdemServico ordemServico);
         public int BeUnique(int numeroOrdemServico);
         public List<OrdemServico> FindAll();
+        public OrdemServico GetById(int id);
+        public void Update(OrdemServico ordemServico);
     }
 }

@@ -30,5 +30,16 @@ namespace CadastroOrdemServico.Repositories
         {
             return _cadastroOrdemServicoContext.OrdensServico.ToList();
         }
+
+        public OrdemServico GetById(int id)
+        {
+            return _cadastroOrdemServicoContext.OrdensServico.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Update(OrdemServico ordemServico)
+        {
+            _cadastroOrdemServicoContext.OrdensServico.Update(ordemServico);
+            _cadastroOrdemServicoContext.SaveChanges();
+        }
     }
 }

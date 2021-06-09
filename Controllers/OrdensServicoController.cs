@@ -36,5 +36,24 @@ namespace CadastroOrdemServico.Controllers
 
             return View(ordemServico);
         }
+
+        public ActionResult Edit(int? id)
+        {
+            var model = _ordemServicoRepository.GetById(id.Value);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(OrdemServico ordemServico)
+        {
+            if (ModelState.IsValid)
+            {
+                _ordemServicoRepository.Update(ordemServico);
+                return RedirectToAction("Index");
+            }
+
+            return View(ordemServico);
+        }
     }
 }
