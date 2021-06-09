@@ -15,7 +15,8 @@ namespace CadastroOrdemServico.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var ordensServico = _ordemServicoRepository.FindAll();
+            return View(ordensServico);
         }
 
         public ActionResult Create()

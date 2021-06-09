@@ -367,3 +367,4 @@ C:\projetos\CadastroOrdemServico\bin\Debug\net5.0\FluentValidation.dll
 C:\projetos\CadastroOrdemServico\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 C:\projetos\CadastroOrdemServico\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\projetos\CadastroOrdemServico\bin\Debug\net5.0\FluentValidation.Extensions.Br.dll
+C:\projetos\CadastroOrdemServico\obj\Debug\net5.0\Razor\Views\OrdensServico\Index.cshtml.g.cs

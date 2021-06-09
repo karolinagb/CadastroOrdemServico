@@ -1,6 +1,7 @@
 ﻿using CadastroOrdemServico.Data;
 using CadastroOrdemServico.Models;
 using CadastroOrdemServico.Repositories.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CadastroOrdemServico.Repositories
@@ -23,6 +24,11 @@ namespace CadastroOrdemServico.Repositories
         public int BeUnique(int numeroOrdemServico)
         {
             return _cadastroOrdemServicoContext.OrdensServico.Where(x => x.Numero == numeroOrdemServico).Count();
+        }
+
+        public List<OrdemServico> FindAll()
+        {
+            return _cadastroOrdemServicoContext.OrdensServico.ToList();
         }
     }
 }

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OrdemServico>
+
+<div class="row">
+    <div class="col-md-3">
+
+        <h4>Ordens de Serviço</h4>
+
+    </div>
+    <div class="col-md-3">
+        <a asp-action="Create" type="button" class="btn btn-primary">Cadastrar Ordem de Serviço</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(x => x.Numero)</th>
+            <th scope="col">@Html.DisplayNameFor(x => x.Titulo)</th>
+            <th scope="col">@Html.DisplayNameFor(x => x.NomeCliente)</th>
+            <th scope="col">@Html.DisplayNameFor(x => x.Valor)</th>
+            <th scope="col">@Html.DisplayNameFor(x => x.Data)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ordemServico in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(x => ordemServico.Numero)</td>
+            <td>@Html.DisplayFor(x => ordemServico.Titulo)</td>
+            <td>@Html.DisplayFor(x => ordemServico.NomeCliente)</td>
+            <td>@ordemServico.Valor.ToString("c")</td>
+            <td>@ordemServico.Data.ToString("dd/MM/yyyy")</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@ordemServico.Id"> Detalhes |</a>
+                <a asp-action="Edit" asp-route-id="@ordemServico.Id"> Editar |</a>
+                <a asp-action="Inactivate" asp-route-id="@ordemServico.Id"> Inativar</a>
+            </td>
+        </tr>
+        }
+</table>
