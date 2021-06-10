@@ -45,5 +45,12 @@ namespace CadastroOrdemServico.Repositories
             _cadastroOrdemServicoContext.OrdensServico.Update(ordemServico);
             _cadastroOrdemServicoContext.SaveChanges();
         }
+
+        public void Remove(int id)
+        {
+            var model = _cadastroOrdemServicoContext.OrdensServico.Find(id);
+            _cadastroOrdemServicoContext.OrdensServico.Remove(model);
+            _cadastroOrdemServicoContext.SaveChanges();
+        }
     }
 }

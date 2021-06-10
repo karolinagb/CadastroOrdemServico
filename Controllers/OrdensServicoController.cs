@@ -39,7 +39,7 @@ namespace CadastroOrdemServico.Controllers
 
         public ActionResult Edit(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -59,6 +59,27 @@ namespace CadastroOrdemServico.Controllers
             }
 
             return View(ordemServico);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            var model = _ordemServicoRepository.GetById(id.Value);
+            return View(model);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            var model = _ordemServicoRepository.GetById(id.Value);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(OrdemServico model, int id)
+        {
+            _ordemServicoRepository.Remove(id);
+            return RedirectToAction("Index");
         }
     }
 }

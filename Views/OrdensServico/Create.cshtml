@@ -8,6 +8,10 @@
     <div class="col-md-12">
         <form asp-action="Create" class="form-horizontal">
             <hr />
+            <strong class="text-danger">
+                @Html.ValidationSummary()
+            </strong>
+            <hr />
             <div class="form-group">
                 <label asp-for="Numero" class="col-md-2 control-label"></label>
                 <div class="col-md-12">
@@ -25,7 +29,7 @@
             <div class="form-group">
                 <label asp-for="CNPJCliente" class="col-md-2 control-label"></label>
                 <div class="col-md-12">
-                    <input asp-for="CNPJCliente" type="text" class="form-control" id="cnpj"/>
+                    <input asp-for="CNPJCliente" type="text" class="form-control" id="cnpj" />
                     <span asp-validation-for="CNPJCliente" class="text-danger"></span>
                 </div>
             </div>
@@ -64,14 +68,11 @@
                     <span asp-validation-for="Valor" class="text-danger"></span>
                 </div>
             </div>
-
-            <strong class="text-danger">
-                @Html.ValidationSummary()
-            </strong>
             <div class="form-group">
                 <div class="col-md-12">
                     <div class="container container-elements-center">
                         <input type="submit" class="btn btn-success " value="Salvar" />
+                        <a asp-action="Index" class="btn btn-danger">Cancelar</a>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,6 @@ namespace CadastroOrdemServico.Models.ViewModelValidators
             RuleFor(x => x.NomeCliente).NotEmpty().WithMessage("Digite o nome do cliente");
             RuleFor(x => x.Data).NotEmpty().WithMessage("Digite a data do serviço");
             RuleFor(x => x.Valor).NotEmpty().WithMessage("Digite o valor do serviço");
-
         }
 
         public bool BeUnique(OrdemServico ordemservico, int numero)

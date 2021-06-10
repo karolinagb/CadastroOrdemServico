@@ -1,0 +1,51 @@
+﻿@model OrdemServico
+
+@{
+    ViewData["Title"] = "Detalhes da Ordem de Serviço";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.Numero)</dt>
+        <dd>@Html.DisplayFor(m => m.Numero)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.Titulo)</dt>
+        <dd>@Html.DisplayFor(m => m.Titulo)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.CNPJCliente)</dt>
+        <dd>@Model.CNPJCliente</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.NomeCliente)</dt>
+        <dd>@Model.NomeCliente</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.CPFPrestadorServico)</dt>
+        <dd>@Html.DisplayFor(m => m.CPFPrestadorServico)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.NomePrestadorServico)</dt>
+        <dd>@Html.DisplayFor(m => m.NomePrestadorServico)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.Data)</dt>
+        <dd>@Model.Data.ToString("dd/MM/yyyy")</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(m => m.Valor)</dt>
+        <dd>@Model.Valor.ToString("c")</dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Excluir</a>
+</p>
+<p>
+    <a asp-action="Index">Voltar a página inicial</a>
+</p>

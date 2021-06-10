@@ -369,3 +369,5 @@ C:\projetos\CadastroOrdemServico\bin\Debug\net5.0\FluentValidation.DependencyInj
 C:\projetos\CadastroOrdemServico\bin\Debug\net5.0\FluentValidation.Extensions.Br.dll
 C:\projetos\CadastroOrdemServico\obj\Debug\net5.0\Razor\Views\OrdensServico\Index.cshtml.g.cs
 C:\projetos\CadastroOrdemServico\obj\Debug\net5.0\Razor\Views\OrdensServico\Edit.cshtml.g.cs
+C:\projetos\CadastroOrdemServico\obj\Debug\net5.0\Razor\Views\OrdensServico\Details.cshtml.g.cs
+C:\projetos\CadastroOrdemServico\obj\Debug\net5.0\Razor\Views\OrdensServico\Delete.cshtml.g.cs

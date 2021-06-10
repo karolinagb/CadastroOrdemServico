@@ -10,5 +10,6 @@ namespace CadastroOrdemServico.Repositories.Interfaces
         public List<OrdemServico> FindAll();
         public OrdemServico GetById(int id);
         public void Update(OrdemServico ordemServico);
+        public void Remove(int id);
     }
 }
