@@ -11,9 +11,9 @@ namespace CadastroOrdemServico.Services
             _ordemServicoRepository = ordemServicoRepository;
         }
 
-        public int BeUnique(int numeroOrdemServico)
+        public int BeUnique(int numeroOrdemServico, int? id)
         {
-            return _ordemServicoRepository.BeUnique(numeroOrdemServico);
+            return _ordemServicoRepository.BeUnique(numeroOrdemServico, id);
         }
     }
 }

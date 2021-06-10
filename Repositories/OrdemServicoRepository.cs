@@ -21,8 +21,12 @@ namespace CadastroOrdemServico.Repositories
             _cadastroOrdemServicoContext.SaveChanges();
         }
 
-        public int BeUnique(int numeroOrdemServico)
+        public int BeUnique(int numeroOrdemServico, int? id)
         {
+            if(id != null)
+            {
+                return _cadastroOrdemServicoContext.OrdensServico.Where(x => x.Numero == numeroOrdemServico).Where(x => x.Id != id).Count();
+            }
             return _cadastroOrdemServicoContext.OrdensServico.Where(x => x.Numero == numeroOrdemServico).Count();
         }
 

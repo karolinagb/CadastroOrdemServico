@@ -39,6 +39,11 @@ namespace CadastroOrdemServico.Controllers
 
         public ActionResult Edit(int? id)
         {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
             var model = _ordemServicoRepository.GetById(id.Value);
             return View(model);
         }

@@ -25,9 +25,9 @@ namespace CadastroOrdemServico.Models.ViewModelValidators
 
         }
 
-        public bool BeUnique(int numero)
+        public bool BeUnique(OrdemServico ordemservico, int numero)
         {
-            var count = _ordemServicoService.BeUnique(numero);
+            var count = _ordemServicoService.BeUnique(numero, ordemservico.Id);
 
             if(count == 0)
             {
