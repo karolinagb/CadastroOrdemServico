@@ -32,11 +32,11 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">@Html.DisplayNameFor(x => x.Numero)</th>
+                <th scope="col"><a asp-action="Index" asp-route-sortOrder="@ViewData["NumeroSortParm"]">@Html.DisplayNameFor(model => model.Numero)</a></th>
                 <th scope="col">@Html.DisplayNameFor(x => x.Titulo)</th>
                 <th scope="col">@Html.DisplayNameFor(x => x.NomeCliente)</th>
                 <th scope="col">@Html.DisplayNameFor(x => x.Valor)</th>
-                <th scope="col">@Html.DisplayNameFor(x => x.Data)</th>
+                <th scope="col"><a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Data)</a></th>
                 <th></th>
             </tr>
         </thead>

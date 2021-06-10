@@ -1,6 +1,7 @@
 ﻿using CadastroOrdemServico.Services;
 using FluentValidation;
 using System;
+using System.Text.RegularExpressions;
 
 namespace CadastroOrdemServico.Models.ViewModelValidators
 {
@@ -20,7 +21,8 @@ namespace CadastroOrdemServico.Models.ViewModelValidators
             RuleFor(x => x.CPFPrestadorServico).NotEmpty().WithMessage("Digite o CPF do prestador de serviço")
                 .IsValidCPF().WithMessage("CPF inválido");
             RuleFor(x => x.NomeCliente).NotEmpty().WithMessage("Digite o nome do cliente");
-            RuleFor(x => x.Data).NotEmpty().WithMessage("Digite a data do serviço");
+            RuleFor(x => x.Data).NotEmpty().WithMessage("Digite a data do serviço")
+                .Must(ValidDate).WithMessage("Data não pode ser posterior a hoje");
             RuleFor(x => x.Valor).NotEmpty().WithMessage("Digite o valor do serviço");
         }
 
@@ -33,6 +35,15 @@ namespace CadastroOrdemServico.Models.ViewModelValidators
                 return true;
             }
 
+            return false;
+        }
+
+        public bool ValidDate(DateTime date)
+        {
+            if(date.Date <= DateTime.Now)
+            {
+                return true;
+            }
             return false;
         }
     }

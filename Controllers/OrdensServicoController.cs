@@ -3,6 +3,8 @@ using CadastroOrdemServico.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CadastroOrdemServico.Controllers
 {
@@ -15,11 +17,36 @@ namespace CadastroOrdemServico.Controllers
             _ordemServicoRepository = ordemServicoRepository;
         }
 
-        public IActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+            ViewData["NumeroSortParm"] = String.IsNullOrEmpty(sortOrder) ? "numero_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+
             var ordensServico = _ordemServicoRepository.FindAll();
+
+            switch (sortOrder)
+            {
+                case "numero_desc":
+                    ordensServico = ordensServico.OrderByDescending(s => s.Numero).ToList();
+                    break;
+                case "Date":
+                    ordensServico = ordensServico.OrderBy(s => s.Data).ToList();
+                    break;
+                case "date_desc":
+                    ordensServico = ordensServico.OrderByDescending(s => s.Data).ToList();
+                    break;
+                default:
+                    ordensServico = ordensServico.OrderBy(s => s.Numero).ToList();
+                    break;
+            }
             return View(ordensServico);
         }
+
+        //public IActionResult Index()
+        //{
+        //    var ordensServico = _ordemServicoRepository.FindAll();
+        //    return View(ordensServico);
+        //}
 
         public ActionResult Create()
         {
@@ -147,7 +174,6 @@ namespace CadastroOrdemServico.Controllers
                 return RedirectToAction("Error", new { message = "Ocorreu um erro ao tentar realizar essa ação" });
             }
 
-            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
