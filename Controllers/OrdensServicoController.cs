@@ -1,6 +1,8 @@
 ﻿using CadastroOrdemServico.Models;
 using CadastroOrdemServico.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Diagnostics;
 
 namespace CadastroOrdemServico.Controllers
 {
@@ -31,6 +33,10 @@ namespace CadastroOrdemServico.Controllers
             if (ModelState.IsValid)
             {
                 _ordemServicoRepository.Insert(ordemServico);
+
+                TempData["Message"] = "Ordem de serviço criada com sucesso";
+                TempData["ColorMessage"] = "success";
+
                 return RedirectToAction("Index");
             }
 
@@ -41,21 +47,43 @@ namespace CadastroOrdemServico.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id não fornecido"});
             }
 
             var model = _ordemServicoRepository.GetById(id.Value);
+
+            if(model == null)
+            {
+                return RedirectToAction("Error", new { message = "Ordem de Serviço não encontrada" });
+            }
+
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(OrdemServico ordemServico)
+        public ActionResult Edit(OrdemServico ordemServico, int id)
         {
+            if(id != ordemServico.Id)
+            {
+                return RedirectToAction("Error", new { message = "Id não corresponde a Ordem de Serviço" });
+            }
+
             if (ModelState.IsValid)
             {
-                _ordemServicoRepository.Update(ordemServico);
-                return RedirectToAction("Index");
+                try
+                {
+                    _ordemServicoRepository.Update(ordemServico);
+
+                    TempData["Message"] = "Edição salva com sucesso";
+                    TempData["ColorMessage"] = "success";
+
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    return RedirectToAction("Error", new { message = "Ocorreu um erro ao tentar realizar essa ação" });
+                }
             }
 
             return View(ordemServico);
@@ -63,23 +91,69 @@ namespace CadastroOrdemServico.Controllers
 
         public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
+            }
+
             var model = _ordemServicoRepository.GetById(id.Value);
+
+            if (model == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Ordem de Serviço não encontrada" });
+            }
+
             return View(model);
         }
 
         public ActionResult Delete(int? id)
         {
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
+            }
+
             var model = _ordemServicoRepository.GetById(id.Value);
+
+            if (model == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Ordem de Serviço não encontrada" });
+            }
 
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(OrdemServico model, int id)
+        public ActionResult Delete(OrdemServico ordemServico, int id)
         {
-            _ordemServicoRepository.Remove(id);
+            if (id != ordemServico.Id)
+            {
+                return RedirectToAction("Error", new { message = "Id não corresponde a Ordem de Serviço" });
+            }
+
+            try
+            {
+                _ordemServicoRepository.Remove(id);
+
+                TempData["Message"] = "Ordem de serviço excluída";
+                TempData["ColorMessage"] = "success";
+
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Error", new { message = "Ocorreu um erro ao tentar realizar essa ação" });
+            }
+
             return RedirectToAction("Index");
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public ActionResult Error(string message)
+        {
+            return View(new ErrorViewModel { Message = message, RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

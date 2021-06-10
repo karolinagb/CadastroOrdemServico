@@ -8,10 +8,15 @@
     <div class="col-md-12">
         <form asp-action="Create" class="form-horizontal">
             <hr />
-            <strong class="text-danger">
-                @Html.ValidationSummary()
-            </strong>
-            <hr />
+
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <strong class="text-danger">
+                    @Html.ValidationSummary()
+                </strong>
+                <hr />
+            }
+
             <div class="form-group">
                 <label asp-for="Numero" class="col-md-2 control-label"></label>
                 <div class="col-md-12">
