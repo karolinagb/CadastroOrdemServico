@@ -3,14 +3,16 @@ using System;
 using CadastroOrdemServico.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CadastroOrdemServico.Migrations
 {
     [DbContext(typeof(CadastroOrdemServicoContext))]
-    partial class CadastroOrdemServicoContextModelSnapshot : ModelSnapshot
+    [Migration("20210610144633_AlterFieldValue")]
+    partial class AlterFieldValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
