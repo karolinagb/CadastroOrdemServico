@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - CadastroOrdemServico</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    @await RenderSectionAsync("Head", required: false)
+    
 </head>
 <body>
     <header>
@@ -46,11 +48,13 @@
             &copy; 2021 - Cadastro de Ordens de Serviço
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/lib/DataTables/datatables.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/jquery.mask.min.js"></script>
     <script src="~/js/Views/masks.js"></script>
+    <script src="~/js/Views/DataTable.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

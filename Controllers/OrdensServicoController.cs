@@ -17,36 +17,11 @@ namespace CadastroOrdemServico.Controllers
             _ordemServicoRepository = ordemServicoRepository;
         }
 
-        public ActionResult Index(string sortOrder)
+        public IActionResult Index()
         {
-            ViewData["NumeroSortParm"] = String.IsNullOrEmpty(sortOrder) ? "numero_desc" : "";
-            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
-
             var ordensServico = _ordemServicoRepository.FindAll();
-
-            switch (sortOrder)
-            {
-                case "numero_desc":
-                    ordensServico = ordensServico.OrderByDescending(s => s.Numero).ToList();
-                    break;
-                case "Date":
-                    ordensServico = ordensServico.OrderBy(s => s.Data).ToList();
-                    break;
-                case "date_desc":
-                    ordensServico = ordensServico.OrderByDescending(s => s.Data).ToList();
-                    break;
-                default:
-                    ordensServico = ordensServico.OrderBy(s => s.Numero).ToList();
-                    break;
-            }
             return View(ordensServico);
         }
-
-        //public IActionResult Index()
-        //{
-        //    var ordensServico = _ordemServicoRepository.FindAll();
-        //    return View(ordensServico);
-        //}
 
         public ActionResult Create()
         {
